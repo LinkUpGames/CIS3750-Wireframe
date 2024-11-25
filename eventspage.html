@@ -1,238 +1,326 @@
 <style>
- .container {
-        border: 2px solid #04aa6d00;
-        border-radius: 10px;
-        padding: 20px;
-        max-width: 1000px;
-        max-height: 800px;
-        margin: 20px auto;
-        background-color: #f9f9f9;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        justify-content: center;
-    }
+  @import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap');
 
-    .container-info {
-        border: 2px solid #04AA6D;
-        border-radius: 10px;
-        padding: 20px;
-        max-width: 400px;
-        max-height: 300px;
-        background-color: #f9f9f9;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        justify-content: center;
-    }
+  button {
+    all: unset;
+  }
 
-    .column-main {
-        float: left;
-        padding: 10px;
-        height: 500px;
-        box-sizing: border-box; 
-    }
+  .silkscreen-regular {
+    font-family: "Silkscreen", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
 
-    .column {
-        float: left;
-        box-sizing: border-box; 
-    }
+  .silkscreen-bold {
+    font-family: "Silkscreen", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+  }
 
-    .left-main {
-        width: 80%;
-    }
+  .container {
+    border: 2px solid #04aa6d00;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 1000px;
+    max-height: 800px;
+    margin: 20px auto;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    justify-content: center;
+  }
 
-    .right-main {
-        width: 20%; 
-    }
+  .container-info {
+    border: 2px solid #04AA6D;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 400px;
+    max-height: 500px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    justify-content: center;
+  }
 
-    .left {
-        width: 60%;
-    }
+  .column-main {
+    float: left;
+    padding: 10px;
+    height: 700px;
+    box-sizing: border-box;
+  }
 
-    .right {
-        width: 40%;
-    }
+  .column {
+    float: left;
+    box-sizing: border-box;
+  }
 
-    .row {
-        display: flex; 
-        justify-content: space-between;
-        align-items: center;
-    }
+  .left-main {
+    width: 80%;
+  }
 
-    #eventtopdonators {
-        max-height: 260px; 
-        overflow-y: auto;
-        padding: 10px;
-        list-style-type: none; 
-    }
-    #eventtopdonators li {
-        margin: 5px 0;
-        padding: 8px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        background-color: #f9f9f9;
-    }
+  .right-main {
+    width: 20%;
+  }
 
-    .points{
-        background-color: #4ee2677c;
-        text-align: center;
-        font-size: large;
-        vertical-align: middle;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
+  .left {
+    width: 60%;
+  }
 
+  .right {
+    width: 40%;
+  }
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  #eventtopdonators {
+    max-height: 260px;
+    overflow-y: auto;
+    padding: 10px;
+    list-style-type: none;
+  }
+
+  #eventtopdonators li {
+    margin: 5px 0;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+
+  .points {
+    background-color: #4ee2677c;
+    text-align: center;
+    font-size: large;
+    vertical-align: middle;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .top-donator {
+    margin-right: 5px;
+    overflow-x: scroll;
+  }
+
+  .top-donator-text {
+    text-overflow: ellipsis;
+  }
+
+  .events {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    margin: 0px;
+    overflow-y: auto;
+    overflow: auto;
+    max-height: 500px;
+  }
+
+  .event-item {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+    width: 100%;
+    border-width: 0px;
+    border-bottom-width: 2px;
+    border-color: #03AA6D;
+    border-style: solid;
+    cursor: pointer;
+  }
+
+  .event-title {
+    font-size: 20px;
+    border-width: 0px;
+    border-bottom-width: 2px;
+    border-color: #04AA6D;
+    border-style: solid;
+    text-align: center;
+  }
+
+  .event-text {
+    text-align: center;
+  }
 </style>
 
 <!---->
-<button onclick="changeEvent('FridgeFillerz')">Try Changing Group</button>
-<button onclick="changeEvent('FruitFanatics')">Try Changing Group2</button>
-
-<div class="container">
-    <h2>Current Event</h2>
-    <div class="row">
-        <div class="column-main left-main" style="background-color: rgba(231, 231, 231, 0.473);">
-            <h3 id="eventname" style="margin-left: 16px;">Fridge Fillerz</h3>
+<div class="container silkscreen-regular">
+  <h2 id="current">Current Event</h2>
+  <div class="row">
+    <div class="column-main left-main" style="background-color: rgba(231, 231, 231, 0.473);">
+      <h3 id="eventname" style="margin-left: 16px;">Fridge Fillerz</h3>
+      <div class="row">
+        <div class="column-main left">
+          <div class="container-info">
             <div class="row">
-                <div class="column-main left">
-                    <div class="container-info">
-                        <div class="row">
-                            <div class="column left">
-                                <img src="https://wireframes.org/wp-content/uploads/2018/03/image-666.jpg">
-                            </div>
-                            <div class="column right">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="container-info">
-                        <div class="row">
-                            <div class="column left">
-                                <h4>Total Donations</h4>
-                                <p id="eventdonationcount">11201 Points - $2310</p>
-                            </div>
-                            <div class="column right">
-                                <h4>Total Groups</h4>
-                                <p id="eventgroupnum">41 Groups</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="column-main right">
-                    <div class="container-info">
-                        <h4>Top Donators</h4>
-                        <ul id="eventtopdonators">
-                            <li>
-                                <div class="row">
-                                    <div class="column" style="width:25%">
-                                        <img style="width:50px; height: 50px;" src="https://t3.ftcdn.net/jpg/05/16/27/58/360_F_516275801_f3Fsp17x6HQK0xQgDQEELoTuERO4SsWV.jpg">
-                                    </div>
-                                    <div class="column" style="width:50%">
-                                        <p>BigDonator</p>
-                                    </div>
-                                    <div class="column" style="width: 25%;">
-                                        <h3 class="points">44</h3>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="row">
-                                    <div class="column" style="width:25%">
-                                        <img style="width:50px; height: 50px;" src="https://t3.ftcdn.net/jpg/05/16/27/58/360_F_516275801_f3Fsp17x6HQK0xQgDQEELoTuERO4SsWV.jpg">
-                                    </div>
-                                    <div class="column" style="width:50%">
-                                        <p>IGiveFood</p>
-                                    </div>
-                                    <div class="column" style="width: 25%;">
-                                        <h3 class="points">31</h3>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+              <div class="column left">
+                <img src="https://wireframes.org/wp-content/uploads/2018/03/image-666.jpg">
+              </div>
+              <div class="column right">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                  et dolore magna aliqua.</p>
+              </div>
             </div>
-
+          </div>
+          <br>
+          <div class="container-info">
+            <div class="row">
+              <div class="column left">
+                <h4>Total Donations</h4>
+                <p id="eventdonationcount">11201 Points - $2310</p>
+              </div>
+              <div class="column right">
+                <h4>Total Groups</h4>
+                <p id="eventgroupnum">41 Groups</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class = "column-main right-main" style="background-color: rgb(209, 209, 209);">
-            <h3>Other Events</h3>
-
+        <div class="column-main right">
+          <div class="container-info">
+            <h4>Top Donators</h4>
+            <ul id="eventtopdonators">
+              <li>
+                <div class="row">
+                  <div class="column" style="width:25%">
+                    <img style="width:50px; height: 50px;"
+                      src="https://t3.ftcdn.net/jpg/05/16/27/58/360_F_516275801_f3Fsp17x6HQK0xQgDQEELoTuERO4SsWV.jpg">
+                  </div>
+                  <div class="column" style="width:50%">
+                    <p>BigDonator</p>
+                  </div>
+                  <div class="column" style="width: 25%;">
+                    <h3 class="points">44</h3>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="row">
+                  <div class="column" style="width:25%">
+                    <img style="width:50px; height: 50px;"
+                      src="https://t3.ftcdn.net/jpg/05/16/27/58/360_F_516275801_f3Fsp17x6HQK0xQgDQEELoTuERO4SsWV.jpg">
+                  </div>
+                  <div class="column" style="width:50%">
+                    <p>IGiveFood</p>
+                  </div>
+                  <div class="column" style="width: 25%;">
+                    <h3 class="points">31</h3>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
+      </div>
+
     </div>
+    <div class="column-main right-main" style="background-color: rgb(209, 209, 209);">
+      <h3 class="silkscreen-bold event-title">Previous Events</h3>
+
+      <ul id="events" class="events">
+
+      </ul>
+    </div>
+  </div>
 </div>
 
 <!---->
 
 <script>
+  const events = [];
 
+  const createOtherEvents = () => {
+    const list = document.getElementById("events");
 
-let events = [];
+    for (const event of events) {
+      const element = document.createElement("li");
+      element.classList.add("silkscreen-regular", "event-item");
 
-//create top donator
-function ctd(name, points) {
-    return {name : name, points: points};
-}
+      const text = document.createElement("p");
+      text.classList.add("silkscreen-regular", "event-text");
+      text.textContent = event.name;
 
-function createEvent(eventName, totalPoints, totalMoney, totalGroups, topGroup, topDonator1, topDonator2, topDonator3) {
+      element.append(text);
+
+      element.addEventListener("click", () => changeEvent(event.name));
+
+      list.append(element);
+    }
+  }
+
+  //create top donator
+  function ctd(name, points) {
+    return {name: name, points: points};
+  }
+
+  function createEvent(eventName, totalPoints, totalMoney, totalGroups, topGroup, topDonator1, topDonator2, topDonator3) {
     events.push(
-        {name: eventName, points: totalPoints, money: totalMoney, groups: totalGroups, topgroup: topGroup, td1: topDonator1, td2: topDonator2, td3: topDonator3}
+      {name: eventName, points: totalPoints, money: totalMoney, groups: totalGroups, topgroup: topGroup, td1: topDonator1, td2: topDonator2, td3: topDonator3}
     );
-}
+  }
 
-function getGroups(){
+  function getGroups() {
     let names = [];
-    events.forEach(function(e) {
-        names.push(e.name);
+    events.forEach(function (e) {
+      names.push(e.name);
     })
-}
+  }
 
-function donatorToHTML(donator) {
-    return`<li>
+  function donatorToHTML(donator) {
+    return `<li>
                 <div class="row">
                     <div class="column" style="width:30%">
                         <img style="width:50px; height: 50px;" src="https://cdn.discordapp.com/attachments/1298327652469309513/1310734774951874600/user_1.png?ex=67464c62&is=6744fae2&hm=7e59da054c89fed05142b7905d37ce80d5a555ac46fc49153b4f5c29fa203b15">
                     </div>
-                    <div class="column" style="width:45%">
-                        <p>${donator.name}</p>
+                    <div class="column top-donator" style="width:45%">
+                        <p class="top-donator-text silkscreen-regular">${donator.name}</p>
                     </div>
                     <div class="column" style="width: 25%;">
                         <h3 class="points">${donator.points}</h3>
                     </div>
                 </div>
             </li>`;
-}
+  }
 
-function changeEvent(groupName) {
-    for(const event of events) {
-        if(event.name == groupName) {
-            document.getElementById("eventname").innerText = event.name;
+  function changeEvent(groupName) {
+    for (const event of events) {
+      if (event.name == groupName) {
+        document.getElementById("eventname").innerText = event.name;
 
-            const donationtext = event.points + " Points - $" + event.money;
-            document.getElementById("eventdonationcount").innerText = donationtext;
+        const donationtext = event.points + " Points - $" + event.money;
+        document.getElementById("eventdonationcount").innerText = donationtext;
 
-            const groupstext = event.groups + " Groups";
-            document.getElementById("eventgroupnum").innerText = groupstext;
+        const groupstext = event.groups + " Groups";
+        document.getElementById("eventgroupnum").innerText = groupstext;
 
-            var topdonatorsHTML = "";
-            topdonatorsHTML += donatorToHTML(event.td1) + donatorToHTML(event.td2) + donatorToHTML(event.td3);
-            document.getElementById("eventtopdonators").innerHTML = topdonatorsHTML;
-        }
+        var topdonatorsHTML = "";
+        topdonatorsHTML += donatorToHTML(event.td1) + donatorToHTML(event.td2) + donatorToHTML(event.td3);
+        document.getElementById("eventtopdonators").innerHTML = topdonatorsHTML;
+
+        document.getElementById("current").innerText = event.name === "FridgeFillerz" ? "Current Event" : "Previous Event";
+      }
     }
-}
+  }
 
-createEvent("FridgeFillerz","11561","5444","44","BigMac",ctd("BigDonator","44"),ctd("IGive","38"),ctd("Johns","11"))
+  createEvent("FridgeFillerz", "11561", "5444", "44", "BigMac", ctd("BigDonator", "44"), ctd("IGive", "38"), ctd("Johns", "11"))
 
-//Auto Generated
-createEvent("SoupSaviors", "9823", "3124", "30", "SoupSupporters", ctd("BrothBoss", "56"), ctd("ChowderChampion", "41"), ctd("StewSavior", "25"));
-createEvent("BreadBringers", "13021", "4523", "50", "LoafLegends", ctd("DoughDominator", "65"), ctd("RollRuler", "52"), ctd("BaguetteBeliever", "35"));
-createEvent("PizzaProviders", "20412", "7321", "70", "SliceSupremes", ctd("CheeseConqueror", "83"), ctd("PepperoniPrince", "61"), ctd("CrustCaptain", "47"));
-createEvent("SnackSharers", "8120", "2310", "25", "ChipsChampions", ctd("CookieKing", "29"), ctd("CandyCrusader", "22"), ctd("SnackSlinger", "19"));
-createEvent("MilkMovers", "10456", "3460", "40", "DairyDynamos", ctd("CreamCommander", "51"), ctd("LactoseLeader", "44"), ctd("YogurtYielder", "30"));
-createEvent("FruitFanatics", "17432", "6310", "60", "BerryBoosters", ctd("AppleAce", "78"), ctd("CitrusChampion", "65"), ctd("BananaBenefactor", "55"));
-createEvent("VeggieVolunteers", "15678", "5210", "55", "GreensGroup", ctd("CarrotContributor", "66"), ctd("SpinachSupporter", "50"), ctd("PepperPatron", "45"));
-createEvent("GrainGivers", "12345", "4512", "45", "WheatWarriors", ctd("RiceRaiser", "58"), ctd("OatOrganizer", "40"), ctd("QuinoaQuoter", "37"));
-createEvent("WaterWarriors", "15001", "5902", "55", "HydrationHeroes", ctd("AquaAlly", "72"), ctd("H2OHelper", "65"), ctd("ThirstTerminator", "50"));
-createEvent("DessertDonators", "8903", "3129", "27", "SweetSquad", ctd("CakeChampion", "33"), ctd("PieProvider", "27"), ctd("BrownieBenefactor", "19"));
+  //Auto Generated
+  createEvent("GiveOrTreat", "15001", "5902", "55", "HydrationHeroes", ctd("AquaAlly", "72"), ctd("H2OHelper", "65"), ctd("ThirstTerminator", "50"));
+  createEvent("SoupSaviors", "9823", "3124", "30", "SoupSupporters", ctd("BrothBoss", "56"), ctd("ChowderChampion", "41"), ctd("StewSavior", "25"));
+  createEvent("BreadBringers", "13021", "4523", "50", "LoafLegends", ctd("DoughDominator", "65"), ctd("RollRuler", "52"), ctd("BaguetteBeliever", "35"));
+  createEvent("PizzaProviders", "20412", "7321", "70", "SliceSupremes", ctd("CheeseConqueror", "83"), ctd("PepperoniPrince", "61"), ctd("CrustCaptain", "47"));
+  createEvent("SnackSharers", "8120", "2310", "25", "ChipsChampions", ctd("CookieKing", "29"), ctd("CandyCrusader", "22"), ctd("SnackSlinger", "19"));
+  createEvent("MilkMovers", "10456", "3460", "40", "DairyDynamos", ctd("CreamCommander", "51"), ctd("LactoseLeader", "44"), ctd("YogurtYielder", "30"));
+  createEvent("FruitFanatics", "17432", "6310", "60", "BerryBoosters", ctd("AppleAce", "78"), ctd("CitrusChampion", "65"), ctd("BananaBenefactor", "55"));
+  createEvent("VeggieVolunteers", "15678", "5210", "55", "GreensGroup", ctd("CarrotContributor", "66"), ctd("SpinachSupporter", "50"), ctd("PepperPatron", "45"));
+  createEvent("GrainGivers", "12345", "4512", "45", "WheatWarriors", ctd("RiceRaiser", "58"), ctd("OatOrganizer", "40"), ctd("QuinoaQuoter", "37"));
+  createEvent("DessertDonators", "8903", "3129", "27", "SweetSquad", ctd("CakeChampion", "33"), ctd("PieProvider", "27"), ctd("BrownieBenefactor", "19"));
 
+  // Other Events
+  createOtherEvents();
 
+  changeEvent("FridgeFillerz");
 </script>
