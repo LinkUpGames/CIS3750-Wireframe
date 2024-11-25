@@ -1,0 +1,173 @@
+<style>
+ .container {
+        border: 2px solid #04aa6d00;
+        border-radius: 10px;
+        padding: 20px;
+        max-width: 1000px;
+        max-height: 800px;
+        margin: 20px auto;
+        background-color: #f9f9f9;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        justify-content: center;
+    }
+
+    .container-info {
+        border: 2px solid #04AA6D;
+        border-radius: 10px;
+        padding: 20px;
+        max-width: 400px;
+        max-height: 300px;
+        background-color: #f9f9f9;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        justify-content: center;
+    }
+
+    .column-main {
+        float: left;
+        padding: 10px;
+        height: 500px;
+        box-sizing: border-box; 
+    }
+
+    .column {
+        float: left;
+        box-sizing: border-box; 
+    }
+
+    .left-main {
+        width: 80%;
+    }
+
+    .right-main {
+        width: 20%; 
+    }
+
+    .left {
+        width: 60%;
+    }
+
+    .right {
+        width: 40%;
+    }
+
+    .row {
+        display: flex; 
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #eventtopdonators {
+        max-height: 200px; 
+        overflow-y: auto;
+        padding: 10px;
+        list-style-type: none; 
+    }
+    #eventtopdonators li {
+        margin: 5px 0;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+    }
+
+    .points{
+        background-color: #4ee2677c;
+        text-align: center;
+        font-size: large;
+        vertical-align: middle;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+</style>
+
+<!---->
+
+<div class="container">
+    <h2>Current Event</h2>
+    <div class="row">
+        <div class="column-main left-main" style="background-color: rgba(231, 231, 231, 0.473);">
+            <h3 id="eventname" style="margin-left: 16px;">Fridge Fillerz</h3>
+            <div class="row">
+                <div class="column-main left">
+                    <div class="container-info">
+                        <div class="row">
+                            <div class="column left">
+                                <img src="https://wireframes.org/wp-content/uploads/2018/03/image-666.jpg">
+                            </div>
+                            <div class="column right">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="container-info">
+                        <div class="row">
+                            <div class="column left">
+                                <h4>Total Donations</h4>
+                                <p id="eventdonationcount">11201 Points - $2310</p>
+                            </div>
+                            <div class="column right">
+                                <h4>Total Groups</h4>
+                                <p id="eventgroupnum">41 Groups</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column-main right">
+                    <div class="container-info">
+                        <h4>Top Donators</h4>
+                        <ul id="eventtopdonators">
+                            <li>
+                                <div class="row">
+                                    <div class="column" style="width:25%">
+                                        <img style="width:50px; height: 50px;" src="https://t3.ftcdn.net/jpg/05/16/27/58/360_F_516275801_f3Fsp17x6HQK0xQgDQEELoTuERO4SsWV.jpg">
+                                    </div>
+                                    <div class="column" style="width:50%">
+                                        <p>BigDonator</p>
+                                    </div>
+                                    <div class="column" style="width: 25%;">
+                                        <h3 class="points">44</h3>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="row">
+                                    <div class="column" style="width:25%">
+                                        <img style="width:50px; height: 50px;" src="https://t3.ftcdn.net/jpg/05/16/27/58/360_F_516275801_f3Fsp17x6HQK0xQgDQEELoTuERO4SsWV.jpg">
+                                    </div>
+                                    <div class="column" style="width:50%">
+                                        <p>IGiveFood</p>
+                                    </div>
+                                    <div class="column" style="width: 25%;">
+                                        <h3 class="points">31</h3>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <br>
+                    <div class="container-info">
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class = "column-main right-main" style="background-color: rgb(209, 209, 209);">
+            <h3>Other Events</h3>
+
+        </div>
+    </div>
+</div>
+
+<!---->
+
+<script>
+
+
+
+
+</script>
