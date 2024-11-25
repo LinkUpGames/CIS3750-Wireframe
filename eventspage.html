@@ -57,7 +57,7 @@
     }
 
     #eventtopdonators {
-        max-height: 200px; 
+        max-height: 260px; 
         overflow-y: auto;
         padding: 10px;
         list-style-type: none; 
@@ -84,6 +84,8 @@
 </style>
 
 <!---->
+<button onclick="changeEvent('FridgeFillerz')">Try Changing Group</button>
+<button onclick="changeEvent('FruitFanatics')">Try Changing Group2</button>
 
 <div class="container">
     <h2>Current Event</h2>
@@ -168,6 +170,73 @@
 <script>
 
 
+let events = [];
+
+//create top donator
+function ctd(name, points) {
+    return {name : name, points: points};
+}
+
+function createEvent(eventName, totalPoints, totalMoney, totalGroups, topGroup, topDonator1, topDonator2, topDonator3) {
+    events.push(
+        {name: eventName, points: totalPoints, money: totalMoney, groups: totalGroups, topgroup: topGroup, td1: topDonator1, td2: topDonator2, td3: topDonator3}
+    );
+}
+
+function getGroups(){
+    let names = [];
+    events.forEach(function(e) {
+        names.push(e.name);
+    })
+}
+
+function donatorToHTML(donator) {
+    return`<li>
+                <div class="row">
+                    <div class="column" style="width:30%">
+                        <img style="width:50px; height: 50px;" src="https://t3.ftcdn.net/jpg/05/16/27/58/360_F_516275801_f3Fsp17x6HQK0xQgDQEELoTuERO4SsWV.jpg">
+                    </div>
+                    <div class="column" style="width:45%">
+                        <p>${donator.name}</p>
+                    </div>
+                    <div class="column" style="width: 25%;">
+                        <h3 class="points">${donator.points}</h3>
+                    </div>
+                </div>
+            </li>`;
+}
+
+function changeEvent(groupName) {
+    for(const event of events) {
+        if(event.name == groupName) {
+            document.getElementById("eventname").innerText = event.name;
+
+            const donationtext = event.points + " Points - $" + event.money;
+            document.getElementById("eventdonationcount").innerText = donationtext;
+
+            const groupstext = event.groups + " Groups";
+            document.getElementById("eventgroupnum").innerText = groupstext;
+
+            var topdonatorsHTML = "";
+            topdonatorsHTML += donatorToHTML(event.td1) + donatorToHTML(event.td2) + donatorToHTML(event.td3);
+            document.getElementById("eventtopdonators").innerHTML = topdonatorsHTML;
+        }
+    }
+}
+
+createEvent("FridgeFillerz","11561","5444","44","BigMac",ctd("BigDonator","44"),ctd("IGive","38"),ctd("Johns","11"))
+
+//Auto Generated
+createEvent("SoupSaviors", "9823", "3124", "30", "SoupSupporters", ctd("BrothBoss", "56"), ctd("ChowderChampion", "41"), ctd("StewSavior", "25"));
+createEvent("BreadBringers", "13021", "4523", "50", "LoafLegends", ctd("DoughDominator", "65"), ctd("RollRuler", "52"), ctd("BaguetteBeliever", "35"));
+createEvent("PizzaProviders", "20412", "7321", "70", "SliceSupremes", ctd("CheeseConqueror", "83"), ctd("PepperoniPrince", "61"), ctd("CrustCaptain", "47"));
+createEvent("SnackSharers", "8120", "2310", "25", "ChipsChampions", ctd("CookieKing", "29"), ctd("CandyCrusader", "22"), ctd("SnackSlinger", "19"));
+createEvent("MilkMovers", "10456", "3460", "40", "DairyDynamos", ctd("CreamCommander", "51"), ctd("LactoseLeader", "44"), ctd("YogurtYielder", "30"));
+createEvent("FruitFanatics", "17432", "6310", "60", "BerryBoosters", ctd("AppleAce", "78"), ctd("CitrusChampion", "65"), ctd("BananaBenefactor", "55"));
+createEvent("VeggieVolunteers", "15678", "5210", "55", "GreensGroup", ctd("CarrotContributor", "66"), ctd("SpinachSupporter", "50"), ctd("PepperPatron", "45"));
+createEvent("GrainGivers", "12345", "4512", "45", "WheatWarriors", ctd("RiceRaiser", "58"), ctd("OatOrganizer", "40"), ctd("QuinoaQuoter", "37"));
+createEvent("WaterWarriors", "15001", "5902", "55", "HydrationHeroes", ctd("AquaAlly", "72"), ctd("H2OHelper", "65"), ctd("ThirstTerminator", "50"));
+createEvent("DessertDonators", "8903", "3129", "27", "SweetSquad", ctd("CakeChampion", "33"), ctd("PieProvider", "27"), ctd("BrownieBenefactor", "19"));
 
 
 </script>
